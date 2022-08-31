@@ -147,23 +147,29 @@ session_start();
                     }
                     ?>
 
-                    <div class="input-group mb-3">
-                        <label for="sexe" class="form-label">Sexe : </label>
+                    <div class="row">
 
-                        <label for="sexe-m">
-                            <input type="radio" class="" id="sexe-m" name="sexe" value="M" />
-                            Masculin
-                        </label>
+                        <div class="col-3">
+                            <label for="sexe" class="form-label">Sexe : </label>
+                        </div>
 
-                        <label for="sexe-f">
-                            <input type="radio" class="" id="sexe-f" name="sexe" value="F" />
-                            Féminin
-                        </label>
+                        <div class="col-9">
+                            <label for="sexe-m">
+                                <input type="radio" class="" id="sexe-m" name="sexe" value="M" />
+                                Masculin
+                            </label>
 
-                        <label for="sexe-a">
-                            <input type="radio" class="" id="sexe-a" name="sexe" value="A" />
-                            Autre
-                        </label>
+                            <label for="sexe-f">
+                                <input type="radio" class="" id="sexe-f" name="sexe" value="F" />
+                                Féminin
+                            </label>
+
+                            <label for="sexe-a">
+                                <input type="radio" class="" id="sexe-a" name="sexe" value="A" />
+                                Autre
+                            </label>
+                        </div>
+
                     </div>
 
                     <?php
@@ -252,7 +258,7 @@ session_start();
 
                     <div class="row">
                         <div class="col-6">
-                            <button type="reset" class="btn btn-primary btn-block">Annuler</button>
+                            <button type="reset" name="reset" class="btn btn-primary btn-block">Annuler</button>
                         </div>
                         <div class="col-6">
                             <button type="submit" class="btn btn-primary btn-block">S'inscrire</button>

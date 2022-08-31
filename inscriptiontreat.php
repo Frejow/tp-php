@@ -17,7 +17,7 @@ if (!isset($_POST["prenom"]) || empty($_POST["prenom"])) {
 }
 
 if (!isset($_POST["sexe"]) || empty($_POST["sexe"])) {
-    $errors["sexe"] = "Ce champs est vide. Merci de le renseigner";
+    $errors["sexe"] = "De quel sexe êtes-vous ?";
 }
 
 if (!isset($_POST["age"]) || empty($_POST["age"])) {
@@ -76,7 +76,7 @@ if (isset($_POST["motdepasse"]) && !empty($_POST["motdepasse"]) && strlen(secure
     $errors["motdepasse"] = "Le champs doit contenir minimum 8 caractères. Les espaces ne sont pas pris en compte.";
 }
 
-if (isset($_POST["motdepasse"]) && !empty($_POST["motdepasse"]) && strlen(secure($_POST["motdepasse"])) >= 8 && empty($_POST["remotdepasse"])) {
+if (isset($_POST["motdepasse"]) && !empty($_POST["motdepasse"]) && strlen(secure($_POST["motdepasse"])) >= 8 && empty($_POST["remotdepasse"]) && !check_exist_userby_email($_POST["mail"])) {
     $errors["remotdepasse"] = "Entrez votre mot de passe à nouveau.";
 }
 
