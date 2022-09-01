@@ -64,7 +64,8 @@ if (isset($_POST["mail"]) && !empty($_POST["mail"]) && !filter_var($_POST["mail"
 }
 
 
-if (isset($_POST["mail"]) && !empty($_POST["mail"]) && (!filter_var($_POST["mail"], FILTER_VALIDATE_EMAIL) || filter_var($_POST["mail"], FILTER_VALIDATE_EMAIL))) {
+if (isset($_POST["mail"]) && !empty($_POST["mail"]) && (!filter_var($_POST["mail"], FILTER_VALIDATE_EMAIL) 
+|| filter_var($_POST["mail"], FILTER_VALIDATE_EMAIL))) {
     $data["mail"] = secure($_POST["mail"]);
 }
 
@@ -76,11 +77,13 @@ if (isset($_POST["motdepasse"]) && !empty($_POST["motdepasse"]) && strlen(secure
     $errors["motdepasse"] = "Le champs doit contenir minimum 8 caractères. Les espaces ne sont pas pris en compte.";
 }
 
-if (isset($_POST["motdepasse"]) && !empty($_POST["motdepasse"]) && strlen(secure($_POST["motdepasse"])) >= 8 && empty($_POST["remotdepasse"]) && !check_exist_userby_email($_POST["mail"])) {
+if (isset($_POST["motdepasse"]) && !empty($_POST["motdepasse"]) && strlen(secure($_POST["motdepasse"])) >= 8 
+&& empty($_POST["remotdepasse"]) && !check_exist_userby_email($_POST["mail"])) {
     $errors["remotdepasse"] = "Entrez votre mot de passe à nouveau.";
 }
 
-if ((isset($_POST["remotdepasse"]) && !empty($_POST["remotdepasse"]) && strlen(secure($_POST["motdepasse"])) >= 8 && $_POST["remotdepasse"] != $_POST["motdepasse"])) {
+if ((isset($_POST["remotdepasse"]) && !empty($_POST["remotdepasse"]) && strlen(secure($_POST["motdepasse"])) >= 8 
+&& $_POST["remotdepasse"] != $_POST["motdepasse"])) {
     $errors["remotdepasse"] = "Mot de passe erroné. Entrez le mot de passe du précédent champs";
 }
 
@@ -94,7 +97,8 @@ if (
 }
 
 if(check_exist_userby_email($_POST["mail"])){
-    $errors["mail"] = "[" . $_POST["mail"] . "] est déjà associé à un compte. Veuillez le changer ou connectez-vous si vous en êtes propriétaire.";
+    $errors["mail"] = "[" . $_POST["mail"] . "] est déjà associé à un compte. 
+    Veuillez le changer ou connectez-vous si vous en êtes propriétaire.";
 }
 
 setcookie(
@@ -117,7 +121,8 @@ if (empty($errors)) {
     if (is_object($database)) {
 
         // Ecriture de la requête
-        $request_insertion = 'INSERT INTO user(nom, prenom, sexe, age, email, motdepasse) VALUES (:nom, :prenom, :sexe, :age, :email, :motdepasse)';
+        $request_insertion = 'INSERT INTO user(nom, prenom, sexe, age, email, motdepasse) 
+        VALUES (:nom, :prenom, :sexe, :age, :email, :motdepasse)';
 
         // Préparation
         $request_insertion_prepare = $database->prepare($request_insertion);
@@ -137,7 +142,8 @@ if (empty($errors)) {
             header("location: inscription.php?success=Inscription effectuée avec succès. Veuillez vous connecter.");
         } else {
 
-            header("location: inscription.php?error=Oupss!!! Une erreur s'est produite lors de l'enregistrement de l'utilisateur. Veuillez réessayer ou contacter l'admin du site.");
+            header("location: inscription.php?error=Oupss!!! Une erreur s'est produite lors de l'enregistrement de 
+            l'utilisateur. Veuillez réessayer ou contacter l'admin du site.");
         }
     } else {
 

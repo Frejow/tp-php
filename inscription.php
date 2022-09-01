@@ -258,7 +258,7 @@ session_start();
 
                     <div class="row">
                         <div class="col-6">
-                            <button type="reset" name="reset" class="btn btn-primary btn-block">Annuler</button>
+                            <button type="reset" name="reset" class="btn btn-danger btn-block">Annuler</button>
                         </div>
                         <div class="col-6">
                             <button type="submit" class="btn btn-primary btn-block">S'inscrire</button>
@@ -266,7 +266,7 @@ session_start();
                     </div>
 
                 </form>
-                <a href="index.php?page=sign_in" class="text-center">Déjà inscrit ? Connectez-vous</a>
+                <a href="#" class="text-center">Déjà inscrit ? Connectez-vous</a>
             </div>
 
         </div>
