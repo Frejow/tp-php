@@ -114,20 +114,15 @@ setcookie(
 
 if (empty($errors)) {
 
-    //echo "Pas d'erreur";
-
     $database =  _database_login();
 
     if (is_object($database)) {
 
-        // Ecriture de la requête
         $request_insertion = 'INSERT INTO user(nom, prenom, sexe, age, email, motdepasse) 
         VALUES (:nom, :prenom, :sexe, :age, :email, :motdepasse)';
 
-        // Préparation
         $request_insertion_prepare = $database->prepare($request_insertion);
 
-        // Exécution ! La recette est maintenant en base de données
         $result = $request_insertion_prepare->execute([
             'nom' => $_POST["nom"],
             'prenom' => $_POST["prenom"],
